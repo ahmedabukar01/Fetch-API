@@ -1,0 +1,52 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+.container{
+    width:80%;
+    max-width:400px;
+    margin:10px auto;
+}
+.nav{
+    display:flex;
+    margin:10px;
+}
+form input[type="text"]{
+    width:100%;
+    padding:4px;
+    margin:5px 0;
+}
+#body{
+    padding:10px 4px;
+}
+button{
+    padding:7px 8px;
+    border:none;
+    border-radius: 3px;
+    color:#fff;
+    margin-right:10px;
+}
+button:hover{
+    cursor:pointer;
+}
+.nav :nth-child(1){
+    background:rgb(55, 99, 245);
+}
+.nav :nth-child(2){
+    background:#198626;
+}
+.nav :nth-child(3){
+    background:#f8af48;
+    color:#000;
+}
+#post{
+    margin:15px 0;
+}
+input[type="submit"]{
+    padding:7px 10px;
+    background:rgb(116, 111, 111);
+    color:#fff;
+    border:none;
+    border-radius:3px;
+}
