@@ -18,13 +18,14 @@ function getText(){
     .catch(err=>console.log(err));
 }
 function getUsers(){
+    output.innerHTML =" ";
     fetch('data.json')
     .then(user=>user.json())
     .then(user=>{
         let outputData = '<h2>Users Data </h2>';
         user.forEach(res=>{
             outputData+= `
-            <ul>
+            <ul class="card">
                 <li>ID: ${res.id}</li>
                 <li>Name: ${res.name}</li>
                 <li>Email: ${res.email}</li>
@@ -37,13 +38,14 @@ function getUsers(){
 }
 
 function getPosts(){
+    output.innerHTML =" ";
     fetch("https://jsonplaceholder.typicode.com/posts")
     .then(data=>data.json())
     .then(posts=>{
         let iio = '<h2>Posts</h2>';
         posts.forEach(post=>{
             iio +=`
-            <div>
+            <div class="post card">
             <h3>${post.title}</h3>
             <p>${post.body}</p>
             </div>
@@ -60,7 +62,6 @@ function postForm(e){
     e.preventDefault();
     let title = document.getElementById('title').value;
     let body = document.getElementById('body').value;
-    
     fetch('https://jsonplaceholder.typicode.com/posts',{
         method:'POST',
         headers: {
@@ -70,5 +71,20 @@ function postForm(e){
         body:JSON.stringify({title:title, body:body})
     })
     .then(res=>res.json())
-    .then(data=>console.log(data));
+    .then(data=> console.log(data));
+
+    myPost(title,body);
+    
 }
+
+// own post not API data 
+function myPost(tit,no){
+    output.innerHTML+=`
+        <div class="card">
+            <h5>${tit}</h5>
+            <p>${no}</p>
+        </div>
+    `;
+
+}
+
